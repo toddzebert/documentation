@@ -12,7 +12,7 @@ contributors: [tessak22, stevector, ataylorme, rachelwhitton, dwayne, dgorton, d
 
 Slow websites are **bad**. Many studies have looked at this and the facts are in. Among other metrics, [a one second delay can reduce conversions by 7%, and 40% of users abandon a website that takes over three seconds to load](https://blog.kissmetrics.com/loading-time/). In this guide we’ll show you how to speed up frontend performance to ensure that visitors to your site stay engaged and have the best experience.
 
-<Enablement title="Agency WebOps Training" link="https://pantheon.io/agencies/learn-pantheon?docs">
+<Enablement title="Agency WebOps Training" link="https://pantheon.io/learn-pantheon?docs">
 
 Learn industry best practices for caching, how to take advantage of them on the platform, and troubleshooting common issues with help from the experts at Pantheon.
 
@@ -271,11 +271,11 @@ See our blog post for an example of [62% performance gains after upgrading](http
 
 #### Enable Redis Object Caching
 
-Sites loading a lot of content can benefit from an object cache like Redis. For details, see [Installing Redis on Drupal or WordPress](/redis).
+Sites loading a lot of content can benefit from an object cache like Redis. For details, see [Object Cache (formerly Redis) for Drupal or WordPress](/object-cache).
 
 #### Monitor Performance with New Relic
 
-If your site doesn't seem to be able to send uncached content fast enough, enable monitoring services for free with [New Relic](/new-relic) for help identifying bottlenecks.
+If your site doesn't seem to be able to send uncached content fast enough, enable monitoring services for free with [New Relic&reg; Performance Monitoring](/new-relic) for help identifying bottlenecks.
 
 #### Helper Tools
 

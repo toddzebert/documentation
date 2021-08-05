@@ -132,9 +132,15 @@ MySQL stored procedures are not supported. Due to the nature of the platform, th
 
 ## Drupal 7 and Ampersands
 
-A Drupal 7 site given a URL with an ampersand (&) in it, excluding query parameter separation, will return a 404, regardless of the presence of a matching path.
+A Drupal 7 site given a URL with an ampersand (`&`) in it, excluding query parameter separation, will return a 404, regardless of the presence of a matching path.
 
 Be sure to encode URLs that use ampersands with `%26` in place of `&`.
+
+## Drupal Steward
+
+The Pantheon platform includes [Drupal Steward](https://www.drupal.org/drupal-security-team/steward), a platform-level mitigation of certain highly-critical vulnerabilities that are identified in Drupal core, as a feature for all Drupal sites on Pantheon. All Pantheon sites are protected by Drupal Steward.
+
+For more information about Drupal Steward, visit the [Drupal Steward FAQ](https://www.drupal.org/drupal-security-team/steward/faq).
 
 ## Email and Deliverability
 
@@ -185,7 +191,7 @@ Pantheon sites use NGINX to concurrently serve requests. The NGINX web server ig
 
 For details, see [Configure Redirects](/redirects/#php-vs-htaccess).
 
-If your site contains rules in `.htaccess` that cannot be migrated to PHP, Pantheon offers its [Advanced Global CDN](/advanced-global-cdn) as a managed service. Custom `.htaccess` rules often can be converted to run on a custom Varnish layer provided by Advanced Global CDN. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
+If your site contains rules in `.htaccess` that cannot be migrated to PHP, Pantheon offers its [Advanced Global CDN](/guides/professional-services/advanced-global-cdn) as a managed service. Custom `.htaccess` rules often can be converted to run on a custom Varnish layer provided by Advanced Global CDN. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
 
 ### Drupal False Positive
 
@@ -205,7 +211,7 @@ For PDF viewer plugins that rely on Mozilla's [PDF.js](https://github.com/mozill
 
 Image optimization libraries such as advpng, OptiPNG, PNGCRUSH, jpegtran, jfifremove, advdef, pngout, jpegoptim have to be installed on the server. At this time, they are not supported. For more information see [Modules with Known Issues.](/modules-known-issues/#imageapi-optimize)
 
-Pantheon also offers Image Optimization as part of Advanced CDN (a [Professional Services](/professional-services#advanced-cdn) engagement). Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
+Pantheon also offers Image Optimization as part of Advanced CDN (a [Professional Services](/guides/professional-services/advanced-global-cdn) engagement). Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
 
 ## Inactive Site Freezing
 
@@ -221,7 +227,7 @@ IP-based security is not recommended on Pantheon - or any cloud platform because
 
 For more information, see [Dynamic Outgoing IP Addresses](/outgoing-ips).
 
-If you require IP address-level access control, [Advanced Global CDN](/advanced-global-cdn#ip-allowlisting--blocklisting) can provide IP-based safelist/blocklist features, as well as IP-based routing. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
+If you require IP address-level access control, [Advanced Global CDN](/guides/professional-services/advanced-global-cdn#ip-allowlisting--blocklisting) can provide IP-based safelist/blocklist features, as well as IP-based routing. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
 
 ## Large Code Repository
 
@@ -272,13 +278,21 @@ Pantheon supports designated use cases for [WordPress Site Networks](/guides/mul
 
 We do not support [Drupal Multisite](https://www.drupal.org/docs/7/multisite-drupal/multi-site-sharing-the-same-code-base). See blog posts: [Why Drupal Multisite is not Enterprise Grade](https://pantheon.io/blog/why-drupal-multisite-not-enterprise-grade) and [Much Ado About Drupal Multisite](https://pantheon.io/blog/much-ado-about-drupal-multisite).
 
+## MySQL LOAD DATA LOCAL INFILE
+
+For [security reasons](https://dev.mysql.com/doc/refman/8.0/en/load-data-local-security.html), Pantheon does not support executing MySQL `LOAD DATA LOCAL INFILE` statements from your PHP application. As a workaround, developers can [connect directly to MySQL](/mysql-access) and load files from their local machine:
+
+```bash{promptUser: user}
+MariaDB [pantheon]> LOAD DATA LOCAL INFILE 'mydata.csv' INTO TABLE `pantheon`.`mytable` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';
+```
+
 ## nginx.conf
 
 Pantheon does not currently support modifying the `nginx.conf` per site, as we run a highly tuned universal configuration file. All of the containers run a standard profile, and we have opted to keep this configuration to keep the `nginx.conf` lean.
 
 If your site uses `nginx.conf` rules for redirects, see [Configure Redirects](/redirects/#php-vs-htaccess).
 
-If your site contains rules in `nginx.conf` that cannot be migrated to PHP, Pantheon offers [Advanced Global CDN](/advanced-global-cdn) as a managed service. Custom `nginx.conf` rules often can be converted to run on a custom Varnish layer provided by Advanced Global CDN. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
+If your site contains rules in `nginx.conf` that cannot be migrated to PHP, Pantheon offers [Advanced Global CDN](/guides/professional-services/advanced-global-cdn) as a managed service. Custom `nginx.conf` rules often can be converted to run on a custom Varnish layer provided by Advanced Global CDN. Please contact your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs) for more information.
 
 ## Node.js
 
@@ -295,7 +309,7 @@ Domain masking allows you to serve two entirely different and separate sites ove
 - Main Site: `https://www.example-site.com/`
 - Blog: `https://www.example-site.com/blog/`
 
-Domain masking is available through Pantheon's [Advanced Global CDN](/advanced-global-cdn#domain-masking-and-reverse-proxy) managed service. If you require domain masking, ask your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs). Customers may also set up domain masking using a third-party CDN service, but please note that third-party services are outside [Pantheon's scope of support](/support/#scope-of-support).
+Domain masking is available through Pantheon's [Advanced Global CDN](/guides/professional-services/advanced-global-cdn#domain-masking-and-reverse-proxy) managed service. If you require domain masking, ask your Customer Success Manager (CSM) or [contact us](https://pantheon.io/contact-us?docs). Customers may also set up domain masking using a third-party CDN service, but please note that third-party services are outside [Pantheon's scope of support](/support/#scope-of-support).
 
 ### Additional Databases
 

@@ -8,9 +8,9 @@ tags: [cache, cdn, launch, security]
 
 Pantheon's [Global CDN](https://pantheon.io/features/global-cdn) is a core platform offering, with improved performance and security for customer sites. Content is served from 70+ global **POP**s (Points Of Presence) where site pages and assets are cached, and [HTTPS](/https) certificates are fully managed using [Let's Encrypt](https://letsencrypt.org).
 
-<Enablement title="Agency WebOps Training" link="https://pantheon.io/agencies/learn-pantheon?docs">
+<Enablement title="Agency WebOps Training" link="https://pantheon.io/learn-pantheon?docs">
 
-Get the most out of Global CDN with help from the experts at Pantheon. We deliver custom workshops to help development teams master the platform and improve internal WebOps.
+Get the most out of Global CDN with help from the experts at Pantheon. We deliver on-demand training to help development teams master the platform and improve internal WebOps.
 
 </Enablement>
 
@@ -42,7 +42,7 @@ To retain your existing CDN, set up a "stacked CDN" configuration. Ensure that y
 
 While we have some limited documentation for this setup with [Cloudflare](/cloudflare#option-2-use-cloudflares-cdn-stacked-on-top-of-pantheons-global-cdn), this is a largely self-serve practice.
 
-If you need additional features or customization for your CDN, consider our [Advanced Global CDN](/advanced-global-cdn) service.
+If you need additional features or customization for your CDN, consider our [Advanced Global CDN](/guides/professional-services/advanced-global-cdn) service.
 
 ### Is the www-redirector service still available?
 
@@ -88,4 +88,4 @@ To prevent issues with Twitter card validation and to reduce the overall time to
 
 ## Advanced Global CDN
 
-For custom solutions addressing the unique challenges your site build presents, see our [Advanced Global CDN](/advanced-global-cdn) service.
+For custom solutions addressing the unique challenges your site build presents, see our [Advanced Global CDN](/guides/professional-services/advanced-global-cdn) service.
